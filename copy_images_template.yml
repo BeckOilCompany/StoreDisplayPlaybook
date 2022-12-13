@@ -37,7 +37,7 @@
 
       - name: find morning files to delete
         find:
-          paths: /home/cpcc/test/Sync/{{ store_nospace }}/{{ screen_nospace }}/Morning
+          paths: /home/cpcc/Stores/{{ store_nospace }}/{{ screen_nospace }}/Morning
         register: morning_files_to_delete
 
       - name: clear morning folder of old images
@@ -50,7 +50,7 @@
         copy:
           src: /home/cpcc/StoreDisplayClient/ImageCache/{{ item[1] }}/{{ item[0] }}
           remote_src: true
-          dest: /home/cpcc/test/Sync/{{ store_nospace }}/{{ screen_nospace }}/Morning
+          dest: /home/cpcc/Stores/{{ store_nospace }}/{{ screen_nospace }}/Morning
         with_items:
           - "{{ morningImages }}"
 
@@ -65,7 +65,7 @@
 
       - name: find afternoon files to delete
         find:
-          paths: /home/cpcc/test/Sync/{{ store_nospace }}/{{ screen_nospace }}/Afternoon
+          paths: /home/cpcc/Stores/{{ store_nospace }}/{{ screen_nospace }}/Afternoon
         register: afternoon_files_to_delete
 
       - name: clear afternoon folder of old images
@@ -78,7 +78,7 @@
         copy:
           src: /home/cpcc/StoreDisplayClient/ImageCache/{{ item[1] }}/{{ item[0] }}
           remote_src: true
-          dest: /home/cpcc/test/Sync/{{ store_nospace }}/{{ screen_nospace }}/Afternoon
+          dest: /home/cpcc/Stores/{{ store_nospace }}/{{ screen_nospace }}/Afternoon
         with_items:
           - "{{ afternoonImages }}"
 ...
